@@ -34,7 +34,9 @@ pipeline {
             steps {
                 echo 'Building Docker image'
                 // Build the Docker images
+                sh 'cd ci/docker/'
                 sh 'docker build -f ci/docker/Dockerfile -t meda7med/kaddem5se4:latest .'
+                sh 'cd ../../'
             }
         }
 
