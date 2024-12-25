@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Clone Repository') {
+            steps {
+                // Clone the GitHub repository
+                git url: 'https://github.com/Mohmedahmeed/GitOps.git', branch: 'main'
+            }
+        }
         stage('deploy') {
                 steps {
                     // Run the docker-compose
