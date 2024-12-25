@@ -34,7 +34,10 @@ pipeline {
             steps {
                 echo 'Building Docker image'
                 // Build the Docker image
+                sh 'ls'
                 sh 'cd GitOps/ci/docker/'
+                sh 'ls'
+                sh 'pwq'
                 sh 'docker build -t meda7med/kaddem5se4:latest .'
             }
         }
