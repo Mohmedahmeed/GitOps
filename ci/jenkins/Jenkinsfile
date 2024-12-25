@@ -35,6 +35,7 @@ pipeline {
                 echo 'Building Docker image'
                 // Build the Docker image
                 sh 'ls'
+                sh 'git clone https://github.com/Mohmedahmeed/GitOps'
                 sh 'cd GitOps/ci/docker/'
                 sh 'ls'
                 sh 'pwq'
