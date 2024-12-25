@@ -1,0 +1,55 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                // Clone the GitHub repository
+                git url: 'https://github.com/chalbimalek/Kaddem5SE4.git', branch: 'Firas_Abdallah_5SE4_G1'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Run the Maven build command
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run tests after a successful build
+                sh 'mvn test'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                echo 'Building Docker image'
+                // Build the Docker image
+                sh 'docker build -t meda7med/kaddem5se4:latest .'
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                echo 'Pushing Docker image to Docker Hub'
+                script {
+                    sh '''
+                        echo Madhmamdrn210 | docker login -u meda7med --password-stdin
+                        docker push meda7med/kaddem5se4:latest
+                    '''
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build, tests, Docker image creation, and push succeeded!'
+        }
+        failure {
+            echo 'Build, tests, Docker image creation, or push failed.'
+        }
+    }
+}
