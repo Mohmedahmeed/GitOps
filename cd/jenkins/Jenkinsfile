@@ -6,6 +6,8 @@ pipeline {
                 steps {
                     // Run the docker-compose
                     sh 'cd cd/docker/'
+                    sh 'ls'
+                    sh 'pwd'
                     sh 'docker-compose up'
                 }
             }
