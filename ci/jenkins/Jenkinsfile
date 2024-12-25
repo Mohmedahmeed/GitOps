@@ -26,7 +26,7 @@ pipeline {
             steps {
                 echo 'Building Docker image'
                 // Build the Docker images
-                sh 'docker build -f ci/docker/Dockerfile -t meda7med/kaddem5se4:latest .'
+                sh 'docker build -f GitOps/ci/docker/Dockerfile -t meda7med/kaddem5se4:latest .'
             }
         }
 
