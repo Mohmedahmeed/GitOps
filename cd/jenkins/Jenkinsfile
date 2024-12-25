@@ -10,41 +10,5 @@ pipeline {
                 }
             }
         }
-
-        stage('Test') {
-            steps {
-                // Run tests after a successful build
-                sh 'mvn test'
-            }
-        }
-
-        stage('Build Docker Image') {
-            steps {
-                echo 'Building Docker image'
-                // Build the Docker image
-                sh 'docker build -t meda7med/kaddem5se4:latest .'
-            }
-        }
-
-        stage('Push Docker Image') {
-            steps {
-                echo 'Pushing Docker image to Docker Hub'
-                script {
-                    sh '''
-                        echo Madhmamdrn210 | docker login -u meda7med --password-stdin
-                        docker push meda7med/kaddem5se4:latest
-                    '''
-                }
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build, tests, Docker image creation, and push succeeded!'
-        }
-        failure {
-            echo 'Build, tests, Docker image creation, or push failed.'
-        }
     }
 }
