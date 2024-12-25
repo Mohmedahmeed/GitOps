@@ -3,9 +3,11 @@ pipeline {
 
     stages {
         stage('deploy') {
-            steps {
-                // Run the docker-compose
-                sh 'docker-compose up'
+            dir('cd/docker/'){
+                steps {
+                    // Run the docker-compose
+                    sh 'docker-compose up'
+                }
             }
         }
 
