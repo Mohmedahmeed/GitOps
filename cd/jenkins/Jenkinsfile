@@ -3,12 +3,11 @@ pipeline {
 
     stages {
         stage('deploy') {
-            dir('cd/docker/'){
                 steps {
                     // Run the docker-compose
+                    cd 'cd/docker/'
                     sh 'docker-compose up'
                 }
             }
-        }
     }
 }
