@@ -34,7 +34,6 @@ pipeline {
             steps {
                 echo 'Building Docker image'
                 // Build the Docker images
-                sh 'git clone https://github.com/Mohmedahmeed/GitOps'
                 sh 'cd ci/docker/'
                 sh 'docker build -t meda7med/kaddem5se4:latest .'
             }
