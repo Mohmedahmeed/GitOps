@@ -37,7 +37,7 @@ pipeline {
                 sh 'ls'
                 sh 'git clone https://github.com/Mohmedahmeed/GitOps'
                 sh 'cd GitOps/ci/docker/'
-                sh 'ls'
+                sh 'ls -l'
                 sh 'pwq'
                 sh 'docker build -t meda7med/kaddem5se4:latest .'
             }
