@@ -7,7 +7,6 @@ pipeline {
                     // Run the docker-compose
                     sh 'ls'
                     sh 'pwd'
-                    sh 'git clone https://github.com/Mohmedahmeed/GitOps.git'
                     sh 'docker-compose -f GitOps/cd/docker/docker-compose.yml up'
                 }
             }
