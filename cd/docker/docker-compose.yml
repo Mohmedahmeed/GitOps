@@ -46,7 +46,7 @@ services:
     image: firasab/kaddem_front:latest  # Using your Angular image from Docker Hub
     container_name: frontend-container
     ports:
-      - "4200:80"  # Assuming the Angular app runs on port 80 in the container ...
+      - "4200:80"  # Assuming the Angular app runs on port 80 in the container ......
     networks:
       - my-network
 
