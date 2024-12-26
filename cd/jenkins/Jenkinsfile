@@ -5,8 +5,6 @@ pipeline {
         stage('deploy') {
                 steps {
                     // Run the docker-compose
-                    sh 'ls'
-                    sh 'pwd'
                     sh 'docker-compose -f GitOps/cd/docker/docker-compose.yml up'
                 }
             }
